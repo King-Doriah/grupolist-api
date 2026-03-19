@@ -123,8 +123,15 @@ export const authController = {
         to: user.email as string,
         link,
       };
+      /*
       const mail = await sendWithRetry(mailService.sendEmail(data));
       if (mail.response.includes("250 2.0.0 OK")) {
+        send_200_response(res, "E-mail enviado com sucesso.", {});
+        return;
+      }
+      */
+      const mail = await mailService.resender(data);
+      if (mail) {
         send_200_response(res, "E-mail enviado com sucesso.", {});
         return;
       }

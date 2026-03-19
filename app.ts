@@ -8,12 +8,15 @@ import path from "path";
 
 import dotenv from "dotenv";
 dotenv.config();
+
 //Importação das rotas //////////////////////////////
 import registerRoutes from "./routes";
 import { resolveUploadPath } from "./middlewares/multerConfig";
 /////////////////////////////////////////////////////
 
 const app: Application = express();
+app.set("trust proxy", 1);
+
 //Segurança na API
 app.use(helmetConfig);
 app.use(limiter);

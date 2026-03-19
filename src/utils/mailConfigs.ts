@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import env from "./configs";
 
-const transporter = nodemailer.createTransport({
+export const transporter = nodemailer.createTransport({
   service: "gmail",
   host: "smtp.gmail.com",
   port: 465,
@@ -11,5 +11,3 @@ const transporter = nodemailer.createTransport({
   },
   connectionTimeout: 5000, // evita travar infinito
 });
-
-export default transporter;

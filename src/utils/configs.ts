@@ -9,6 +9,7 @@ const env = {
   emailUser: process.env.EMAIL_USER as string,
   emailPass: process.env.EMAIL_PASS as string,
   frontUrl: process.env.FRONT_URL as string,
+  resend: process.env.RESEND_API_KEY as string,
 };
 
 export default env;
