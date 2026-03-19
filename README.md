@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Base URL: http://localhost:5000/
 
 EndPoits:
@@ -133,3 +134,7 @@ async create(req: Request, res: Response){
 		send_response_error(res, error);
 	}
 }
+=======
+# grupolist-api
+É um projeto muito foda :)
+>>>>>>> cb04f4daefe8e8899b99c99450f6a540ea3b1297

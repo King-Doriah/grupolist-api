@@ -1,9 +1,8 @@
-import "dotenv/config";
-import type { PrismaConfig } from "prisma";
+//import { PrismaClient } from "../generated/prisma"; // Alterar o caminho do prisma dependendo de onde ele foi criado.
+
+import { PrismaClient } from "../../generated/prisma";
 import { env } from "prisma/config";
 
-<<<<<<< HEAD
-=======
 import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
@@ -24,14 +23,8 @@ export const adapter = (type: "mysql" | "postgresql") => {
   else return;
 };
 
->>>>>>> cb04f4daefe8e8899b99c99450f6a540ea3b1297
-export default {
-  schema: "prisma/schema.prisma",
-  migrations: {
-    path: "prisma/migrations",
-    seed: "tsx prisma/seed.ts",
-  },
-  datasource: {
-    url: env("DATABASE_URL"),
-  },
-} satisfies PrismaConfig;
+const prisma = new PrismaClient({
+  adapter: adapter("postgresql"),
+});
+
+export default prisma;
