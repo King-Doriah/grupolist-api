@@ -131,6 +131,7 @@ export const authController = {
       }
       */
       const mail = await mailService.resender(data);
+      console.log(mail);
       if (mail) {
         send_200_response(res, "E-mail enviado com sucesso.", {});
         return;
