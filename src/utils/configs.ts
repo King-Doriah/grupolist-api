@@ -10,6 +10,8 @@ const env = {
   emailPass: process.env.EMAIL_PASS as string,
   frontUrl: process.env.FRONT_URL as string,
   resend: process.env.RESEND_API_KEY as string,
+  brevoUser: process.env.BREVO_USER as string,
+  brevoPass: process.env.BREVO_PASS as string,
 };
 
 export default env;

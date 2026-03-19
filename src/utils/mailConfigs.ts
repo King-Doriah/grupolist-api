@@ -3,11 +3,11 @@ import env from "./configs";
 
 export const transporter = nodemailer.createTransport({
   service: "gmail",
-  host: "smtp.gmail.com",
-  port: 465,
+  host: "smtp-relay.brevo.com",
+  port: 587,
   auth: {
-    user: env.emailUser,
-    pass: env.emailPass,
+    user: env.brevoUser,
+    pass: env.brevoPass,
   },
   connectionTimeout: 5000, // evita travar infinito
 });

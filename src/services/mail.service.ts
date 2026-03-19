@@ -6,7 +6,7 @@ import { Resend } from "resend";
 export const mailService = {
   async sendEmail(mailData: Mail) {
     return await transporter.sendMail({
-      from: `"GrupoList" <${process.env.EMAIL_USER}>`,
+      from: `"GrupoList" <${env.brevoUser}>`,
       to: mailData.to,
       subject: "Recuperação de senha",
       html: `
