@@ -1,0 +1,33 @@
+#node_modules
+# Keep environment variables out of version control
+#.env
+
+#generated
+#example.js
+#/src/example
+#/src/generated
+#/src/generated/prisma
+#test2.ts
+#seed.txt
+
+# Dependências
+node_modules/
+
+# Build gerado — o Render vai fazer o build
+dist/
+
+# Variáveis de ambiente — NUNCA vai pro GitHub
+.env
+.env.*
+
+# Uploads de utilizadores — ficheiros locais
+src/uploads/
+
+# Prisma client gerado
+generated/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
