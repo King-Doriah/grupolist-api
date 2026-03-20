@@ -20,6 +20,7 @@ import {
 import { listService } from "../services/list.service";
 import { userService } from "../services/user.service";
 import { getUserLimit } from "../utils/funcs";
+import { uploadToCloudinary } from "../utils/cloudinaryConfig";
 
 export const listController = {
   async create(req: Request, res: Response) {
@@ -34,6 +35,12 @@ export const listController = {
         send_400_response(res, "Informe uma foto", {});
         return;
       }
+
+      const foto: string | null = await uploadToCloudinary(
+        file.buffer,
+        file.originalname,
+      );
+
       const userId = (req as any).userId;
 
       const user = await userService.byId(userId);
@@ -54,7 +61,7 @@ export const listController = {
 
       const data = {
         produto: listData.data.produto,
-        foto: file.filename,
+        foto,
         disponivel: listData.data.disponivel === "true" ? true : false,
       };
 

@@ -21,7 +21,7 @@ router.post(
   "/",
   verifyUserRoles(["OWNER"]),
   checkPlan(),
-  upload.single("foto"),
+  //upload.single("foto"),
   listController.create,
 );
 

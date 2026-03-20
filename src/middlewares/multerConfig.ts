@@ -11,7 +11,7 @@ export const resolveUploadPath = () => {
   }
 };
 
-const storage = multer.diskStorage({
+const storageLocal = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, path.join(__dirname, "..", "uploads"));
   },
@@ -19,6 +19,8 @@ const storage = multer.diskStorage({
     cb(null, `${Date.now()}-${file.originalname}`);
   },
 });
+
+const storage = multer.memoryStorage();
 
 const fileFilter = (
   req: Request,
