@@ -15,7 +15,7 @@ import { resolveUploadPath } from "./middlewares/multerConfig";
 /////////////////////////////////////////////////////
 
 const app: Application = express();
-app.set("trust proxy", 1);
+//app.set("trust proxy", 1);
 
 //Segurança na API
 app.use(helmetConfig);

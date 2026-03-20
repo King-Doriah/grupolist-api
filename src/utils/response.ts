@@ -50,11 +50,24 @@ export const send_response_error = (res: Response, error: any) => {
       if (
         error.message.includes("ETIMEDOUT") ||
         error.message.includes("ENOTFOUND") ||
-        error.message.includes("ECONNECTION")
+        (error.message.includes("ECONNECTION") &&
+          error.message.includes("smtp"))
       ) {
-        const err = handleMailError(error.message);
-        send_response(res, "error", err.code, err.message, {}, {});
-        return;
+        if (error.message.includes("smtp")) {
+          const err = handleMailError(error.message);
+          send_response(res, "error", err.code, err.message, {}, {});
+          return;
+        } else if (error.message.includes("ENOTFOUND api.cloudinary.com")) {
+          send_response(
+            res,
+            "error",
+            400,
+            "Não foi possível fazer o envio da imagem. Tente novamente.",
+            {},
+            {},
+          );
+          return;
+        }
       }
     }
   } else {

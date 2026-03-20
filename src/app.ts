@@ -15,7 +15,7 @@ import { resolveUploadPath } from "./middlewares/multerConfig";
 /////////////////////////////////////////////////////
 
 const app: Application = express();
-app.set("trust proxy", 1);
+//app.set("trust proxy", 1);
 
 //Segurança na API
 app.use(helmetConfig);
@@ -27,8 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Arquivos de upload
-resolveUploadPath();
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+//resolveUploadPath();
+//app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 //Rotas //////////////////////////////////////////////////
 registerRoutes(app);

@@ -6,6 +6,7 @@ import { listController } from "../controllers/list.controller";
 
 const upload = multer({
   storage: multerConfig.storage,
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter(_, file, cb) {
     if (file.mimetype.startsWith("image/")) {
       cb(null, true);
@@ -21,7 +22,7 @@ router.post(
   "/",
   verifyUserRoles(["OWNER"]),
   checkPlan(),
-  //upload.single("foto"),
+  upload.single("foto"),
   listController.create,
 );
 

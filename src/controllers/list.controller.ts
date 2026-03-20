@@ -19,7 +19,7 @@ import {
 } from "../utils/response";
 import { listService } from "../services/list.service";
 import { userService } from "../services/user.service";
-import { getUserLimit } from "../utils/funcs";
+import { getUserLimit, verifyFileExtension } from "../utils/funcs";
 import { uploadToCloudinary } from "../utils/cloudinaryConfig";
 
 export const listController = {
@@ -36,6 +36,11 @@ export const listController = {
         return;
       }
 
+      if (!verifyFileExtension(file)) {
+        send_400_response(res, "Formato da imagem inválido.", {});
+        return;
+      }
+
       const foto: string | null = await uploadToCloudinary(
         file.buffer,
         file.originalname,
@@ -48,6 +53,8 @@ export const listController = {
         send_403_response(res, "Esta conta está temporariamente suspensa.");
         return;
       }
+
+      console.log({ user, file });
 
       const limit = getUserLimit(user.plan!);
       const lists = await listService.byUserId(userId);
@@ -78,6 +85,7 @@ export const listController = {
       }
       send_400_response(res, "Erro ao criar lista.", {});
     } catch (error) {
+      console.log({ error });
       send_response_error(res, error);
     }
   },

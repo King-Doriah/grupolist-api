@@ -101,3 +101,15 @@ export async function sendWithRetry(fn: any, retries = 3) {
     }
   }
 }
+
+export function verifyFileExtension(file: Express.Multer.File) {
+  if (
+    file.originalname.endsWith(".png") ||
+    file.originalname.endsWith(".jpeg") ||
+    file.originalname.endsWith(".jpg") ||
+    file.originalname.endsWith(".web")
+  ) {
+    return true;
+  }
+  return false;
+}
