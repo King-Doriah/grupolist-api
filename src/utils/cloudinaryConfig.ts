@@ -14,7 +14,7 @@ export const uploadToCloudinary = (
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       {
-        folder: "grupolist",
+        folder: "minhalista",
         public_id: `${Date.now()}-${filename.replace(/\.[^/.]+$/, "")}`,
         resource_type: "image",
       },

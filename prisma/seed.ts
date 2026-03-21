@@ -25,7 +25,7 @@ async function main() {
             "Esse sistema foi criado por Miraldino Paulo Dória, um programador de 23 anos e fundador da Startup LaurinSoft Tecnologies.",
         },
         {
-          pergunta: "O que é o GrupoList?",
+          pergunta: "O que é o Minha Lista?",
           resposta:
             "É uma plataforma para acompanhar compras em grupo em tempo real. O dono cria uma lista, compartilha um token único no WhatsApp ou outro canal e todos acompanham cada etapa — sem perguntar no off.",
         },
