@@ -54,8 +54,6 @@ export const listController = {
         return;
       }
 
-      console.log({ user, file });
-
       const limit = getUserLimit(user.plan!);
       const lists = await listService.byUserId(userId);
       if (lists.length >= limit) {
@@ -85,7 +83,7 @@ export const listController = {
       }
       send_400_response(res, "Erro ao criar lista.", {});
     } catch (error) {
-      console.log({ error });
+      //console.log({ error });
       send_response_error(res, error);
     }
   },
